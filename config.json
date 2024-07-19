@@ -66,7 +66,7 @@
       "subtitle": "This is my homepage.",
       "social_icons": [
         {
-          "href": "https://kechang.uk/blog",
+          "href": "https://blog.kechang.uk",
           "title": "Kechang's blog",
           "icon": "icon-blogger",
           "img_alt": "Blog Icon"
@@ -119,32 +119,32 @@
           {
             "name": "Kechang's blog",
             "description": "My musings and ramblings.",
-            "url": "https://kechang.uk/blog"
+            "url": "https://blog.kechang.uk"
           },
           {
             "name": "Kechang's Alist",
             "description": "Where my files hang out.",
-            "url": "https://kechang.uk/alist"
+            "url": "https://pan.kechang.uk"
           },
           {
             "name": "Kechang's Qinglong",
             "description": "Automate all the things!",
-            "url": "https://kechang.uk/qinglong"
+            "url": "https://qinglong.kechang.uk"
           },
           {
             "name": "Kechang's YOURLS",
             "description": "Shrink those URLs!",
-            "url": "https://kechang.uk/yourls"
+            "url": "https://url.kechang.uk"
           },
           {
             "name": "Kechang's Bark",
             "description": "Notifications that bark.",
-            "url": "https://kechang.uk/bark"
+            "url": "https://bark.kechang.uk"
           },
           {
             "name": "Kechang's Status",
             "description": "How are my servers doing?",
-            "url": "https://kechang.uk/status"
+            "url": "https://status.kechang.uk"
           }
         ]
       },
