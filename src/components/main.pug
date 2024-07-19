@@ -2,14 +2,14 @@ main
   .main-left
     #author.card
       - var avatarImg = config.left.card_author.avatar || "/assets/avatar.png";
-      - var tag1Text = config.left.card_author.tag1 || "Daydreamer🤡";
-      - var tag2Text = config.left.card_author.tag2 || "Procrastinator💤";
+      - var tag1Text = config.left.card_author.tag1 || "Yawn 💤";
+      - var tag2Text = config.left.card_author.tag2 || "Congratulation 🎉";
       img(src=`${avatarImg}`)
       span.author-tag1 #{ tag1Text }
       span.author-tag2 #{ tag2Text }
     if config.left.card_aboutme.en
       #author-aboutme.card
-        - var aboutme_text = config.left.card_aboutme.text || "Life-long learning";
+        - var aboutme_text = config.left.card_aboutme.text || "Kechang";
         p #{ aboutme_text }
     #author-info.card
       each info in config.left.card_author_infos
@@ -48,7 +48,7 @@ main
                 p= "📅 " + post.date
     if config.right.github.en
       .github-section
-        h1 Github Projects
+        h1 My Servers
         .github-cards
           each repo in config.right.github.repositories
             .card
@@ -57,7 +57,7 @@ main
                 .card-description #{ repo.description }
     if config.right.github_snake.en
       .github_snake
-        - var snakeImg = config.right.github_snake.img || "https://raw.githubusercontent.com/nixgnauhcuy/nixgnauhcuy/output/github-contribution-grid-snake.svg";
+        - var snakeImg = config.right.github_snake.img || "https://raw.githubusercontent.com/kechangdev/kechang-s-picture-repository/main/images/github-contribution-grid-snake.svg";
         img.github-snake-img(src=`${snakeImg}`, alt="github contribution grid")
     button(type='button' id='mode-btn' title='Mode')
       i(class='iconfont icon-circle-half-stroke')

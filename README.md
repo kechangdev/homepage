@@ -1,3 +1,6 @@
+Copyright https://github.com/nixgnauhcuy/NixHomepage/tree/main
+
+
 <div align="right">
   Language:
   🇺🇸
@@ -8,7 +11,7 @@
 
 [demo website](https://www.nixgnauhcuy.top/), if you like this project, maybe you can star it~
 
-## :camera: Previews
+## camera: Previews
 
 ![](/docs/img/img1.png)
 
