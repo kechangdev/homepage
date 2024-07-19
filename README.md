@@ -1,6 +1,3 @@
-Copyright https://github.com/nixgnauhcuy/NixHomepage/tree/main
-
-
 <div align="right">
   Language:
   🇺🇸
