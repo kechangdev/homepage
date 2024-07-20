@@ -57,7 +57,7 @@ main
                 .card-description #{ repo.description }
     if config.right.github_snake.en
       .github_snake
-        - var snakeImg = config.right.github_snake.img || "https://raw.githubusercontent.com/kechangdev/kechang-s-picture-repository/main/images/github-contribution-grid-snake.svg";
+        - var snakeImg = config.right.github_snake.img || "https://kechang.uk/pic/github-contribution-grid-snake.svg";
         img.github-snake-img(src=`${snakeImg}`, alt="github contribution grid")
     button(type='button' id='mode-btn' title='Mode')
       i(class='iconfont icon-circle-half-stroke')
