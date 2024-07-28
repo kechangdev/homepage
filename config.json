@@ -132,6 +132,11 @@
             "url": "https://qinglong.kechang.uk"
           },
           {
+            "name": "Kechang's Chat",
+            "description": "Engage in conversations with AI for assistance and interaction.",
+            "url": "https://chat.kechang.uk"
+          },
+          {
             "name": "Kechang's YOURLS",
             "description": "Shrink those URLs!",
             "url": "https://url.kechang.uk/admin"
@@ -145,6 +150,11 @@
             "name": "Kechang's Status",
             "description": "How are my servers doing?",
             "url": "https://status.kechang.uk"
+          },
+          {
+            "name": "Kechang's API",
+            "description": "AI-powered API for seamless integration and data exchange.",
+            "url": "https://api.kechang.uk"
           }
         ]
       },
