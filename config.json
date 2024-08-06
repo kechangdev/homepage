@@ -133,7 +133,7 @@
           },
           {
             "name": "Kechang's Chat",
-            "description": "Engage in conversations with AI for assistance and interaction.",
+            "description": "Chat with AI for help and fun!",
             "url": "https://chat.kechang.uk"
           },
           {
@@ -153,7 +153,7 @@
           },
           {
             "name": "Kechang's API",
-            "description": "AI-powered API for seamless integration and data exchange.",
+            "description": "AI-powered API for Kechang's Chat.",
             "url": "https://api.kechang.uk"
           }
         ]
