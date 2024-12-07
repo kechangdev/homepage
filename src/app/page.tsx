@@ -265,7 +265,7 @@ export default function Home() {
                   className="relative"
               >
                 <img
-                    src="https://raw.githubusercontent.com/kechangdev/homepage.old/f5875fd248b0f7ac14ed74acc2ae020230c6c09c/src/assets/github-contribution-grid-snake.svg"
+                    src="./github-contribution-grid-snake.svg"
                     alt="GitHub Contributions"
                     className="object-cover w-full h-full"
                 />
