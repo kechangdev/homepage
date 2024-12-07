@@ -152,13 +152,13 @@ export default function Home() {
         {/* Custom Cursor */}
         <motion.div
             ref={cursorRef}
-            className="fixed w-10 h-10 rounded-full border border-[#bf1b15] pointer-events-none z-50 mix-blend-difference"
+            className="fixed w-10 h-10 rounded-full border border-[#bf1b15] pointer-events-none z-50"
             style={{
               x: cursorX,
               y: cursorY,
               transition: 'transform 0.05s ease-in-out',
               backgroundColor: 'transparent',
-              boxShadow: '0 0 10px rgba(255, 255, 255, 0.5)',
+              boxShadow: '0 0 10px rgba(191, 27, 21, 0.5)', // Optional: red shadow for better visibility
             }}
         />
 
