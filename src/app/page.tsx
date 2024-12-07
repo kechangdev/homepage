@@ -57,24 +57,59 @@ export default function Home() {
   const services = [
     {
       id: 1,
-      title: "AI Service",
-      description: "Artificial Intelligence Solutions",
+      title: "kechang's blog",
+      description: "My musings and ramblings.",
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995",
-      link: "/ai"
+      link: "https://blog.kechang.uk"
     },
     {
       id: 2,
-      title: "Data Analytics",
-      description: "Data Insights & Visualization",
+      title: "kechang's Alist",
+      description: "Where my files hang out.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
-      link: "/analytics"
+      link: "https://pan.kechang.uk"
     },
     {
       id: 3,
-      title: "Cloud Platform",
-      description: "Cloud Computing Solutions",
+      title: "kechang's Status",
+      description: "How are my servers doing?",
       image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
-      link: "/cloud"
+      link: "https://status.kechang.uk"
+    },
+    {
+      id: 4,
+      title: "kechang's Qinglong",
+      description: "Automate all the things!",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+      link: "https://qinglong.kechang.uk"
+    },
+    {
+      id: 5,
+      title: "kechang's Chat",
+      description: "Chat with AI for help and fun!",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+      link: "https://chat.kechang.uk"
+    },
+    {
+      id: 6,
+      title: "kechang's API",
+      description: "AI-powered API for Kechang's Chat.",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+      link: "https://api.kechang.uk"
+    },
+    {
+      id: 7,
+      title: "kechang's Bark",
+      description: "Notifications that bark.",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+      link: "https://bark.kechang.uk"
+    },
+    {
+      id: 8,
+      title: "kechang's YOURLS",
+      description: "Shrink those URLs!",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+      link: "https://url.kechang.uk/admin"
     }
   ];
 
@@ -288,7 +323,6 @@ export default function Home() {
                   <span>View Project</span>
                 </a>
               </p>
-
             </div>
           </div>
         </footer>
