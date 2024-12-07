@@ -144,7 +144,9 @@ export default function Home() {
       <>
         <Head>
           <title>kechang | A brief homepage</title>
-          <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+          <link
+              href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+              rel="stylesheet"/>
         </Head>
 
         {/* Custom Cursor */}
@@ -163,7 +165,7 @@ export default function Home() {
         {/* Progress Bar */}
         <motion.div
             className="fixed top-0 left-0 right-0 h-[2px] bg-[#bf1b15] origin-left z-50"
-            style={{ scaleX: smoothProgress }}
+            style={{scaleX: smoothProgress}}
         />
 
         {/* Navigation */}
@@ -179,52 +181,54 @@ export default function Home() {
                 <a href="#services" className="hover:text-[#bf1b15] transition-colors duration-300">SERVICES</a>
                 <a href="#about" className="hover:text-[#bf1b15] transition-colors duration-300">ABOUT</a>
                 <a href="#contact" className="hover:text-[#bf1b15] transition-colors duration-300">CONTACT</a>
-                <a href="https://github.com/kechangdev" target="_blank" rel="noopener noreferrer" className="hover:text-[#bf1b15] transition-colors duration-300">GITHUB</a>
+                <a href="https://github.com/kechangdev" target="_blank" rel="noopener noreferrer"
+                   className="hover:text-[#bf1b15] transition-colors duration-300">GITHUB</a>
               </div>
             </div>
           </div>
         </motion.nav>
 
         {/* Hero Section */}
-        <section className="h-screen relative flex items-center justify-center bg-gradient-to-br from-black to-gray-800">
+        <section
+            className="h-screen relative flex items-center justify-center bg-gradient-to-br from-black to-gray-800">
           <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.6 }}
-              transition={{ duration: 1.5, ease: "easeOut" }}
+              initial={{opacity: 0}}
+              animate={{opacity: 0.6}}
+              transition={{duration: 1.5, ease: "easeOut"}}
               className="absolute inset-0 bg-opacity-70"
           />
           <motion.div
-              initial={{ opacity: 0, scale: 1.1 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.5, delay: 0.5, type: "spring", stiffness: 50, damping: 15 }}
+              initial={{opacity: 0, scale: 1.1}}
+              animate={{opacity: 1, scale: 1}}
+              transition={{duration: 1.5, delay: 0.5, type: "spring", stiffness: 50, damping: 15}}
               className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1623039925698-1f96229b1a51?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center"
-              style={{ opacity: 0.4 }}
+              style={{opacity: 0.4}}
           />
           <div className="relative z-10 text-center px-4">
             <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+                initial={{opacity: 0, y: 20}}
+                animate={{opacity: 1, y: 0}}
+                transition={{duration: 1, delay: 0.8, ease: "easeOut"}}
                 className="font-['Cormorant_Garamond'] text-6xl md:text-8xl font-thin text-yellow-500 mb-8"
             >
               Digital Solutions
             </motion.h1>
             <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 1, ease: "easeOut" }}
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                transition={{duration: 1, delay: 1, ease: "easeOut"}}
                 className="text-lg md:text-xl tracking-[0.2em] font-light text-yellow-500"
             >
               CRAFTING DIGITAL EXPERIENCES
             </motion.p>
           </div>
           <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
+              initial={{opacity: 0}}
+              animate={{opacity: 1}}
+              transition={{duration: 1, delay: 1.2, ease: "easeOut"}}
               className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
           >
-            <div className="w-[1px] h-24 bg-yellow-500 mx-auto" />
+            <div className="w-[1px] h-24 bg-yellow-500 mx-auto"/>
             <p className="mt-4 text-sm tracking-[0.2em] text-yellow-300">EXPLORE</p>
           </motion.div>
         </section>
@@ -232,19 +236,19 @@ export default function Home() {
         {/* About Section */}
         <section id="about" className="py-24 relative overflow-hidden bg-gradient-to-br from-white to-gray-200">
           <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 0.1 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-              viewport={{ once: true }}
+              initial={{opacity: 0}}
+              whileInView={{opacity: 0.1}}
+              transition={{duration: 0.7, ease: "easeOut"}}
+              viewport={{once: true}}
               className="absolute inset-0"
           />
           <div className="relative z-10 max-w-[1500px] mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-16 items-center">
               <motion.div
-                  initial={{ opacity: 0, x: -40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  viewport={{ once: true }}
+                  initial={{opacity: 0, x: -40}}
+                  whileInView={{opacity: 1, x: 0}}
+                  transition={{duration: 0.8, ease: "easeOut"}}
+                  viewport={{once: true}}
               >
                 <h2 className="font-['Cormorant_Garamond'] text-4xl md:text-6xl mb-6 text-black">
                   About Me
@@ -254,10 +258,10 @@ export default function Home() {
                 </p>
               </motion.div>
               <motion.div
-                  initial={{ opacity: 0, x: 40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  viewport={{ once: true }}
+                  initial={{opacity: 0, x: 40}}
+                  whileInView={{opacity: 1, x: 0}}
+                  transition={{duration: 0.8, ease: "easeOut"}}
+                  viewport={{once: true}}
                   className="relative"
               >
                 <img
@@ -271,37 +275,40 @@ export default function Home() {
         </section>
 
         {/* Services Section */}
-        <section id="services" className="py-24 px-4 bg-gradient-to-br from-white to-gray-200" ref={servicesContainerRef}>
+        <section id="services" className="py-24 px-4 bg-gradient-to-br from-white to-gray-200"
+                 ref={servicesContainerRef}>
           <div className="max-w-[1500px] mx-auto">
             <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: "easeOut" }}
-                viewport={{ once: true }}
+                initial={{opacity: 0, y: 20}}
+                whileInView={{opacity: 1, y: 0}}
+                transition={{duration: 0.7, ease: "easeOut"}}
+                viewport={{once: true}}
                 className="font-['Cormorant_Garamond'] text-4xl md:text-6xl text-center text-black mb-20"
             >
               Services
             </motion.h2>
             <div className="relative overflow-hidden">
-              <div className="flex transition-transform duration-300" style={{ transform: `translateX(${hasScrolledToMiddle ? 0 : blockSize + 20}px)` }}>
+              <div className="flex flex-nowrap justify-center transition-transform duration-300"
+                   style={{transform: `translateX(${hasScrolledToMiddle ? 0 : blockSize + 20}px)`}}>
                 {services.map((service, index) => (
                     <motion.a
                         href={service.link}
                         key={service.id}
-                        initial={{ opacity: 0, x: 40 }}
-                        animate={{ opacity: hasScrolledToMiddle ? 1 : 0, x: hasScrolledToMiddle ? 0 : 40 }}
-                        transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
-                        className="group relative overflow-hidden cursor-pointer rounded-lg shadow-lg m-2"
-                        style={{ width: `${blockSize}px`, height: '200px' }}
+                        initial={{opacity: 0, y: 20}}
+                        animate={{opacity: hasScrolledToMiddle ? 1 : 0, y: hasScrolledToMiddle ? 0 : 20}}
+                        transition={{duration: 0.5, ease: "easeOut", delay: index * 0.1}}
+                        className="group relative overflow-hidden cursor-pointer rounded-lg shadow-lg m-2 flex flex-col justify-center items-center text-center"
+                        style={{width: `${blockSize}px`, height: '200px'}}
                     >
-                      <div className="absolute inset-0 bg-black/40 z-10 transition-opacity duration-500 group-hover:bg-opacity-0" />
                       <img
                           src={service.image}
                           alt={service.title}
-                          className="object-cover w-full h-full transform transition-transform duration-500 group-hover:scale-105"
+                          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 z-0"
                       />
-                      <div className="absolute inset-0 z-20 p-6 flex flex-col justify-end bg-gradient-to-t from-black via-gray-900 to-transparent transition-opacity duration-500 group-hover:bg-opacity-0">
-                        <h3 className="font-['Cormorant_Garamond'] text-xl mb-2 text-white">{service.title}</h3>
+                      <div
+                          className="absolute inset-0 bg-black/40 z-10 transition-opacity duration-500 group-hover:bg-opacity-0"></div>
+                      <div className="relative z-20 p-6 transition-transform duration-500">
+                        <h3 className="font-['Cormorant_Garamond'] text-xl mb-2 text-white transition-transform duration-500 transform group-hover:translate-y-[-20%]">{service.title}</h3>
                         <p className="text-sm tracking-[0.2em] opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 text-white">
                           {service.description}
                         </p>
@@ -319,8 +326,10 @@ export default function Home() {
             <div className="text-center mb-12">
               <div className="text-2xl tracking-[0.2em] font-light mb-4 text-black">GET IN TOUCH</div>
               <div className="flex justify-center space-x-8 text-sm tracking-[0.2em] text-black">
-                <a href="mailto:kechang.dev@gmail.com" className="hover:text-[#bf1b15] transition-colors duration-300">EMAIL</a>
-                <a href="https://github.com/kechangdev" target="_blank" rel="noopener noreferrer" className="hover:text-[#bf1b15] transition-colors duration-300">GITHUB</a>
+                <a href="mailto:kechang.dev@gmail.com"
+                   className="hover:text-[#bf1b15] transition-colors duration-300">EMAIL</a>
+                <a href="https://github.com/kechangdev" target="_blank" rel="noopener noreferrer"
+                   className="hover:text-[#bf1b15] transition-colors duration-300">GITHUB</a>
               </div>
             </div>
             <div className="border-t border-black pt-4">
@@ -333,7 +342,7 @@ export default function Home() {
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-black" fill="none" viewBox="0 0 24 24"
                        stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                          d="M12 3c-4.97 0-9 4.03-9 9a9 9 0 0016.26 5.32c.45-.73.74-1.54.74-2.32 0-2.22-2.02-4-4.5-4h-1.5V9h1.5c2.48 0 4.5 1.78 4.5 4a4.5 4.5 0 01-4.5 4.5H12v-3h2.5a1.5 1.5 0 000-3H12V9h1.5C17.67 9 21 12.33 21 16.5c0 1.78-.61 3.42-1.62 4.73A9 9 0 0012 21z" />
+                          d="M12 3c-4.97 0-9 4.03-9 9a9 9 0 0016.26 5.32c.45-.73.74-1.54.74-2.32 0-2.22-2.02-4-4.5-4h-1.5V9h1.5c2.48 0 4.5 1.78 4.5 4a4.5 4.5 0 01-4.5 4.5H12v-3h2.5a1.5 1.5 0 000-3H12V9h1.5C17.67 9 21 12.33 21 16.5c0 1.78-.61 3.42-1.62 4.73A9 9 0 0012 21z"/>
                   </svg>
                   <span>View Project</span>
                 </a>
