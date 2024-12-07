@@ -11,6 +11,17 @@ export default function Home() {
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
   const [isVisible, setIsVisible] = useState(true);
+  const [buttonVisible, setButtonVisible] = useState(false); // State for button visibility
+
+  // Disable right-click context menu
+  useEffect(() => {
+    const handleContextMenu = (e: MouseEvent) => {
+      e.preventDefault();
+    };
+
+    window.addEventListener('contextmenu', handleContextMenu);
+    return () => window.removeEventListener('contextmenu', handleContextMenu);
+  }, []);
 
   // Mouse follower effect
   useEffect(() => {
@@ -32,8 +43,10 @@ export default function Home() {
     let lastScrollY = window.scrollY;
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      setIsVisible(lastScrollY > currentScrollY || currentScrollY < 10);
-      lastScrollY = currentScrollY;
+      if (Math.abs(currentScrollY - lastScrollY) > 5) {
+        setIsVisible(lastScrollY > currentScrollY || currentScrollY < 10);
+        lastScrollY = currentScrollY;
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -68,18 +81,18 @@ export default function Home() {
   return (
       <>
         <Head>
-          <title>Kechang | This is my homepage</title>
+          <title>kechang | A brief homepage</title>
           <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
         </Head>
 
         {/* Custom Cursor */}
         <motion.div
             ref={cursorRef}
-            className="fixed w-10 h-10 rounded-full border border-yellow-500 pointer-events-none z-50 mix-blend-difference"
+            className="fixed w-10 h-10 rounded-full border border-[#bf1b15] pointer-events-none z-50 mix-blend-difference" // Changed cursor edge color to red
             style={{
               x: cursorX,
               y: cursorY,
-              transition: 'transform 0.1s ease-in-out',
+              transition: 'transform 0.05s ease-in-out', // Smoother cursor effect
               backgroundColor: 'transparent',
               boxShadow: '0 0 10px rgba(255, 255, 255, 0.5)',
             }}
@@ -87,24 +100,24 @@ export default function Home() {
 
         {/* Progress Bar */}
         <motion.div
-            className="fixed top-0 left-0 right-0 h-[2px] bg-yellow-500 origin-left z-50"
+            className="fixed top-0 left-0 right-0 h-[2px] bg-[#bf1b15] origin-left z-50" // Changed progress bar color to red
             style={{ scaleX: smoothProgress }}
         />
 
         {/* Navigation */}
         <motion.nav
-            className={`fixed w-full z-40 backdrop-blur-md transition-opacity duration-200 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+            className={`fixed w-full z-40 backdrop-blur-md transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`} // Smooth nav transitions
         >
           <div className="max-w-[1800px] mx-auto px-8 py-4">
             <div className="flex justify-between items-center">
               <div className="text-xl tracking-[0.2em] font-medium text-white">
-                Kechang
+                kechang
               </div>
               <div className="hidden md:flex space-x-8 text-sm tracking-[0.2em] text-white">
-                <a href="#services" className="hover:text-yellow-500 transition-colors duration-300">SERVICES</a>
-                <a href="#about" className="hover:text-yellow-500 transition-colors duration-300">ABOUT</a>
-                <a href="#contact" className="hover:text-yellow-500 transition-colors duration-300">CONTACT</a>
-                <a href="https://github.com/kechangdev" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-500 transition-colors duration-300">GITHUB</a>
+                <a href="#services" className="hover:text-[#bf1b15] transition-colors duration-300">SERVICES</a>
+                <a href="#about" className="hover:text-[#bf1b15] transition-colors duration-300">ABOUT</a>
+                <a href="#contact" className="hover:text-[#bf1b15] transition-colors duration-300">CONTACT</a>
+                <a href="https://github.com/kechangdev" target="_blank" rel="noopener noreferrer" className="hover:text-[#bf1b15] transition-colors duration-300">GITHUB</a>
               </div>
             </div>
           </div>
@@ -115,13 +128,13 @@ export default function Home() {
           <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.6 }}
-              transition={{ duration: 2 }}
+              transition={{ duration: 1.5, ease: "easeOut" }} // More fluid transitions
               className="absolute inset-0 bg-opacity-70"
           />
           <motion.div
               initial={{ opacity: 0, scale: 1.1 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 2, type: "spring", stiffness: 60, damping: 20 }}
+              transition={{ duration: 1.5, delay: 0.5, type: "spring", stiffness: 50, damping: 15 }} // Slightly smoother scalings
               className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1623039925698-1f96229b1a51?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center"
               style={{ opacity: 0.4 }}
           />
@@ -129,7 +142,7 @@ export default function Home() {
             <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
+                transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
                 className="font-['Cormorant_Garamond'] text-6xl md:text-8xl font-thin text-yellow-500 mb-8"
             >
               Digital Solutions
@@ -137,7 +150,7 @@ export default function Home() {
             <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 1 }}
+                transition={{ duration: 1, delay: 1, ease: "easeOut" }}
                 className="text-lg md:text-xl tracking-[0.2em] font-light text-yellow-500"
             >
               CRAFTING DIGITAL EXPERIENCES
@@ -146,7 +159,7 @@ export default function Home() {
           <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
+              transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
               className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
           >
             <div className="w-[1px] h-24 bg-yellow-500 mx-auto" />
@@ -155,14 +168,14 @@ export default function Home() {
         </section>
 
         {/* Services Section */}
-        <section id="services" className="py-24 px-4 bg-gradient-to-br from-gray-900 via-black to-gray-800">
+        <section id="services" className="py-24 px-4 bg-gradient-to-br from-white to-gray-200">
           <div className="max-w-[1500px] mx-auto">
             <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
                 viewport={{ once: true }}
-                className="font-['Cormorant_Garamond'] text-4xl md:text-6xl text-center text-yellow-500 mb-20"
+                className="font-['Cormorant_Garamond'] text-4xl md:text-6xl text-center text-black mb-20"
             >
               Services
             </motion.h2>
@@ -173,7 +186,7 @@ export default function Home() {
                       key={service.id}
                       initial={{ opacity: 0, y: 40 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: service.id * 0.1 }}
+                      transition={{ duration: 0.5, delay: service.id * 0.1, ease: "easeOut" }}
                       viewport={{ once: true }}
                       className="group relative overflow-hidden cursor-pointer rounded-lg shadow-lg"
                   >
@@ -181,10 +194,10 @@ export default function Home() {
                     <img
                         src={service.image}
                         alt={service.title}
-                        className="object-cover w-full h-[180px] transform transition-transform duration-700 group-hover:scale-110"
+                        className="object-cover w-full h-[180px] transform transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 z-20 p-6 flex flex-col justify-end bg-gradient-to-t from-black via-gray-900 to-transparent transition-opacity duration-500 group-hover:bg-opacity-0">
-                      <h3 className="font-['Cormorant_Garamond'] text-2xl mb-2 text-yellow-500">{service.title}</h3>
+                      <h3 className="font-['Cormorant_Garamond'] text-2xl mb-2 text-white">{service.title}</h3> {/* Changed text color to white */}
                       <p className="text-sm tracking-[0.2em] opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 text-white">
                         {service.description}
                       </p>
@@ -196,11 +209,11 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        <section id="about" className="py-24 relative overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-800">
+        <section id="about" className="py-24 relative overflow-hidden bg-gradient-to-br from-white to-gray-200">
           <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 0.1 }}
-              transition={{ duration: 1 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
               viewport={{ once: true }}
               className="absolute inset-0"
           />
@@ -209,28 +222,34 @@ export default function Home() {
               <motion.div
                   initial={{ opacity: 0, x: -40 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 1 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
                   viewport={{ once: true }}
               >
-                <h2 className="font-['Cormorant_Garamond'] text-4xl md:text-6xl mb-6 text-yellow-500">
+                <h2 className="font-['Cormorant_Garamond'] text-4xl md:text-6xl mb-6 text-black">
                   About Me
                 </h2>
-                <p className="text-lg leading-relaxed text-white/80 mb-6">
+                <p className="text-lg leading-relaxed text-black/80 mb-6">
                   A Student!!!
                 </p>
-                <a
-                    href="https://github.com/kechangdev"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm tracking-[0.2em] border border-yellow-500 px-8 py-3 hover:bg-yellow-500 hover:text-black transition-all duration-300 inline-block"
+                <div
+                    className="relative inline-block"
+                    onMouseEnter={() => setButtonVisible(true)}
+                    onMouseLeave={() => setButtonVisible(false)} // Show/hide button on hover
                 >
-                  VIEW MY WORK
-                </a>
+                  <a
+                      href="https://github.com/kechangdev"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`text-sm tracking-[0.2em] border border-black px-8 py-3 transition-all duration-300 inline-block ${buttonVisible ? 'block' : 'hidden'} bg-black text-white`} // Button visibility and styling
+                  >
+                    VIEW MY WORK
+                  </a>
+                </div>
               </motion.div>
               <motion.div
                   initial={{ opacity: 0, x: 40 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 1 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
                   viewport={{ once: true }}
                   className="relative"
               >
@@ -245,20 +264,31 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer id="contact" className="py-24 bg-gradient-to-br from-black via-gray-900 to-black">
+        <footer id="contact" className="py-24 bg-gradient-to-br from-white to-gray-200">
           <div className="max-w-[1500px] mx-auto px-4">
             <div className="text-center mb-12">
-              <div className="text-2xl tracking-[0.2em] font-light mb-4 text-yellow-500">GET IN TOUCH</div>
-              <div className="flex justify-center space-x-8 text-sm tracking-[0.2em] text-yellow-500">
-                <a href="mailto:kechang.dev@gmail.com" className="hover:text-white transition-colors duration-300">EMAIL</a>
-                <a href="https://github.com/kechangdev" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300">GITHUB</a>
-                {/*<a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300">LINKEDIN</a>*/}
+              <div className="text-2xl tracking-[0.2em] font-light mb-4 text-black">GET IN TOUCH</div>
+              <div className="flex justify-center space-x-8 text-sm tracking-[0.2em] text-black">
+                <a href="mailto:kechang.dev@gmail.com" className="hover:text-[#bf1b15] transition-colors duration-300">EMAIL</a>
+                <a href="https://github.com/kechangdev" target="_blank" rel="noopener noreferrer" className="hover:text-[#bf1b15] transition-colors duration-300">GITHUB</a>
               </div>
             </div>
-            <div className="border-t border-yellow-500 pt-4">
-              <p className="text-center text-sm text-yellow-500">
-                © {new Date().getFullYear()} Kechang. ALL RIGHTS RESERVED
+            <div className="border-t border-black pt-4"> {/* Changed border color to black */}
+              <p className="text-center text-sm text-black">
+                © {new Date().getFullYear()} KECHANG. ALL RIGHTS RESERVED
               </p>
+              <p className="text-center text-sm text-black">
+                <a href="https://github.com/kechangdev/homepage" target="_blank" rel="noopener noreferrer"
+                   className="flex items-center justify-center space-x-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-black" fill="none" viewBox="0 0 24 24"
+                       stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                          d="M12 3c-4.97 0-9 4.03-9 9a9 9 0 0016.26 5.32c.45-.73.74-1.54.74-2.32 0-2.22-2.02-4-4.5-4h-1.5V9h1.5c2.48 0 4.5 1.78 4.5 4a4.5 4.5 0 01-4.5 4.5H12v-3h2.5a1.5 1.5 0 000-3H12V9h1.5C17.67 9 21 12.33 21 16.5c0 1.78-.61 3.42-1.62 4.73A9 9 0 0012 21z"/>
+                  </svg>
+                  <span>View Project</span>
+                </a>
+              </p>
+
             </div>
           </div>
         </footer>
