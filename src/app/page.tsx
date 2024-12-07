@@ -254,7 +254,7 @@ export default function Home() {
                   About Me
                 </h2>
                 <p className="text-lg leading-relaxed text-black/80 mb-6">
-                  A Student!!!
+                  A Student.
                 </p>
               </motion.div>
               <motion.div
