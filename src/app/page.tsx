@@ -10,6 +10,7 @@ export default function Home() {
   const cursorRef = useRef<HTMLDivElement | null>(null);
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
+  const [isVisible, setIsVisible] = useState(true);
 
   // Mouse follower effect
   useEffect(() => {
@@ -25,6 +26,19 @@ export default function Home() {
     cursorX.set(mousePosition.x - 16);
     cursorY.set(mousePosition.y - 16);
   }, [mousePosition]);
+
+  // Handle dynamic show/hide of nav bar based on scroll direction
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setIsVisible(lastScrollY > currentScrollY || currentScrollY < 10);
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Sample services data
   const services = [
@@ -49,7 +63,6 @@ export default function Home() {
       image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
       link: "/cloud"
     }
-    // Add more services as needed
   ];
 
   return (
@@ -62,12 +75,13 @@ export default function Home() {
         {/* Custom Cursor */}
         <motion.div
             ref={cursorRef}
-            className="fixed w-8 h-8 rounded-full border border-yellow-500 pointer-events-none z-50 mix-blend-difference"
+            className="fixed w-10 h-10 rounded-full border border-yellow-500 pointer-events-none z-50 mix-blend-difference"
             style={{
               x: cursorX,
               y: cursorY,
               transition: 'transform 0.1s ease-in-out',
               backgroundColor: 'transparent',
+              boxShadow: '0 0 10px rgba(255, 255, 255, 0.5)',
             }}
         />
 
@@ -78,31 +92,23 @@ export default function Home() {
         />
 
         {/* Navigation */}
-        <nav className="fixed w-full z-40 mix-blend-difference bg-black/50 backdrop-blur-sm">
+        <motion.nav
+            className={`fixed w-full z-40 backdrop-blur-md transition-opacity duration-200 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+        >
           <div className="max-w-[1800px] mx-auto px-8 py-4">
             <div className="flex justify-between items-center">
-              <motion.div
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="text-xl tracking-[0.2em] font-medium text-yellow-500"
-              >
+              <div className="text-xl tracking-[0.2em] font-medium text-white">
                 Kechang
-              </motion.div>
-              <motion.div
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                  className="hidden md:flex space-x-8 text-sm tracking-[0.2em] text-yellow-500"
-              >
-                <a href="#services" className="hover:text-white transition-colors duration-300">SERVICES</a>
-                <a href="#about" className="hover:text-white transition-colors duration-300">ABOUT</a>
-                <a href="#contact" className="hover:text-white transition-colors duration-300">CONTACT</a>
-                <a href="https://github.com/kechangdev" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300">GITHUB</a>
-              </motion.div>
+              </div>
+              <div className="hidden md:flex space-x-8 text-sm tracking-[0.2em] text-white">
+                <a href="#services" className="hover:text-yellow-500 transition-colors duration-300">SERVICES</a>
+                <a href="#about" className="hover:text-yellow-500 transition-colors duration-300">ABOUT</a>
+                <a href="#contact" className="hover:text-yellow-500 transition-colors duration-300">CONTACT</a>
+                <a href="https://github.com/kechangdev" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-500 transition-colors duration-300">GITHUB</a>
+              </div>
             </div>
           </div>
-        </nav>
+        </motion.nav>
 
         {/* Hero Section */}
         <section className="h-screen relative flex items-center justify-center bg-gradient-to-br from-black to-gray-800">
@@ -196,7 +202,7 @@ export default function Home() {
               whileInView={{ opacity: 0.1 }}
               transition={{ duration: 1 }}
               viewport={{ once: true }}
-              className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1623039925698-1f96229b1a51?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-fixed bg-center"
+              className="absolute inset-0"
           />
           <div className="relative z-10 max-w-[1500px] mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -226,11 +232,11 @@ export default function Home() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 1 }}
                   viewport={{ once: true }}
-                  className="aspect-square relative"
+                  className="relative"
               >
                 <img
-                    src="https://images.unsplash.com/photo-1551434678-e076c223a692"
-                    alt="Technology workspace"
+                    src="https://raw.githubusercontent.com/kechangdev/homepage.old/f5875fd248b0f7ac14ed74acc2ae020230c6c09c/src/assets/github-contribution-grid-snake.svg"
+                    alt="GitHub Contributions"
                     className="object-cover w-full h-full"
                 />
               </motion.div>
