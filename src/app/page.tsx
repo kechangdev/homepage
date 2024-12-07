@@ -285,7 +285,7 @@ export default function Home() {
                 viewport={{once: true}}
                 className="font-['Cormorant_Garamond'] text-4xl md:text-6xl text-center text-black mb-20"
             >
-              Services
+              Servers
             </motion.h2>
             <div className="relative overflow-hidden">
               <div className="flex flex-nowrap justify-center transition-transform duration-300"
