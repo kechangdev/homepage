@@ -140,13 +140,28 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Disable text selection and context menu
+  useEffect(() => {
+    const preventDefault = (e: MouseEvent) => {
+      e.preventDefault();
+    };
+
+    window.addEventListener('contextmenu', preventDefault);
+    window.addEventListener('mousedown', preventDefault);
+
+    return () => {
+      window.removeEventListener('contextmenu', preventDefault);
+      window.removeEventListener('mousedown', preventDefault);
+    };
+  }, []);
+
   return (
       <>
         <Head>
           <title>kechang | A brief homepage</title>
           <link
               href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
-              rel="stylesheet"/>
+              rel="stylesheet" />
         </Head>
 
         {/* Custom Cursor */}
@@ -165,7 +180,7 @@ export default function Home() {
         {/* Progress Bar */}
         <motion.div
             className="fixed top-0 left-0 right-0 h-[2px] bg-[#bf1b15] origin-left z-50"
-            style={{scaleX: smoothProgress}}
+            style={{ scaleX: smoothProgress }}
         />
 
         {/* Navigation */}
@@ -192,43 +207,43 @@ export default function Home() {
         <section
             className="h-screen relative flex items-center justify-center bg-gradient-to-br from-black to-gray-800">
           <motion.div
-              initial={{opacity: 0}}
-              animate={{opacity: 0.6}}
-              transition={{duration: 1.5, ease: "easeOut"}}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.6 }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
               className="absolute inset-0 bg-opacity-70"
           />
           <motion.div
-              initial={{opacity: 0, scale: 1.1}}
-              animate={{opacity: 1, scale: 1}}
-              transition={{duration: 1.5, delay: 0.5, type: "spring", stiffness: 50, damping: 15}}
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.5, delay: 0.5, type: "spring", stiffness: 50, damping: 15 }}
               className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1623039925698-1f96229b1a51?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center"
-              style={{opacity: 0.4}}
+              style={{ opacity: 0.4 }}
           />
           <div className="relative z-10 text-center px-4">
             <motion.h1
-                initial={{opacity: 0, y: 20}}
-                animate={{opacity: 1, y: 0}}
-                transition={{duration: 1, delay: 0.8, ease: "easeOut"}}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
                 className="font-['Cormorant_Garamond'] text-6xl md:text-8xl font-thin text-yellow-500 mb-8"
             >
-              Digital Solutions
+              Kechang's homepage
             </motion.h1>
             <motion.p
-                initial={{opacity: 0}}
-                animate={{opacity: 1}}
-                transition={{duration: 1, delay: 1, ease: "easeOut"}}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 1, ease: "easeOut" }}
                 className="text-lg md:text-xl tracking-[0.2em] font-light text-yellow-500"
             >
               CRAFTING DIGITAL EXPERIENCES
             </motion.p>
           </div>
           <motion.div
-              initial={{opacity: 0}}
-              animate={{opacity: 1}}
-              transition={{duration: 1, delay: 1.2, ease: "easeOut"}}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
               className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
           >
-            <div className="w-[1px] h-24 bg-yellow-500 mx-auto"/>
+            <div className="w-[1px] h-24 bg-yellow-500 mx-auto" />
             <p className="mt-4 text-sm tracking-[0.2em] text-yellow-300">EXPLORE</p>
           </motion.div>
         </section>
@@ -236,19 +251,19 @@ export default function Home() {
         {/* About Section */}
         <section id="about" className="py-24 relative overflow-hidden bg-gradient-to-br from-white to-gray-200">
           <motion.div
-              initial={{opacity: 0}}
-              whileInView={{opacity: 0.1}}
-              transition={{duration: 0.7, ease: "easeOut"}}
-              viewport={{once: true}}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 0.1 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              viewport={{ once: true }}
               className="absolute inset-0"
           />
           <div className="relative z-10 max-w-[1500px] mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-16 items-center">
               <motion.div
-                  initial={{opacity: 0, x: -40}}
-                  whileInView={{opacity: 1, x: 0}}
-                  transition={{duration: 0.8, ease: "easeOut"}}
-                  viewport={{once: true}}
+                  initial={{ opacity: 0, x: -40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  viewport={{ once: true }}
               >
                 <h2 className="font-['Cormorant_Garamond'] text-4xl md:text-6xl mb-6 text-black">
                   About Me
@@ -258,10 +273,10 @@ export default function Home() {
                 </p>
               </motion.div>
               <motion.div
-                  initial={{opacity: 0, x: 40}}
-                  whileInView={{opacity: 1, x: 0}}
-                  transition={{duration: 0.8, ease: "easeOut"}}
-                  viewport={{once: true}}
+                  initial={{ opacity: 0, x: 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  viewport={{ once: true }}
                   className="relative"
               >
                 <img
@@ -279,26 +294,26 @@ export default function Home() {
                  ref={servicesContainerRef}>
           <div className="max-w-[1500px] mx-auto">
             <motion.h2
-                initial={{opacity: 0, y: 20}}
-                whileInView={{opacity: 1, y: 0}}
-                transition={{duration: 0.7, ease: "easeOut"}}
-                viewport={{once: true}}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                viewport={{ once: true }}
                 className="font-['Cormorant_Garamond'] text-4xl md:text-6xl text-center text-black mb-20"
             >
               Servers
             </motion.h2>
             <div className="relative overflow-hidden">
               <div className="flex flex-nowrap justify-center transition-transform duration-300"
-                   style={{transform: `translateX(${hasScrolledToMiddle ? 0 : blockSize + 20}px)`}}>
+                   style={{ transform: `translateX(${hasScrolledToMiddle ? 0 : blockSize + 20}px)` }}>
                 {services.map((service, index) => (
                     <motion.a
                         href={service.link}
                         key={service.id}
-                        initial={{opacity: 0, y: 20}}
-                        animate={{opacity: hasScrolledToMiddle ? 1 : 0, y: hasScrolledToMiddle ? 0 : 20}}
-                        transition={{duration: 0.5, ease: "easeOut", delay: index * 0.1}}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: hasScrolledToMiddle ? 1 : 0, y: hasScrolledToMiddle ? 0 : 20 }}
+                        transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
                         className="group relative overflow-hidden cursor-pointer rounded-lg shadow-lg m-2 flex flex-col justify-center items-center text-center"
-                        style={{width: `${blockSize}px`, height: '200px'}}
+                        style={{ width: `${blockSize}px`, height: '200px' }}
                     >
                       <img
                           src={service.image}
