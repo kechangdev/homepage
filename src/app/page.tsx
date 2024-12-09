@@ -321,7 +321,7 @@ export default function Home() {
                                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 z-0"
                                     />
 
-                                     <div className="absolute inset-0 bg-black/10 z-10 transition-opacity duration-500 group-hover:bg-opacity-0"></div>
+                                    <div className="absolute inset-0 bg-black/10 z-10 transition-opacity duration-500 group-hover:bg-opacity-0"></div>
 
                                     <div className="relative z-20 p-6 transition-transform duration-500">
                                         <h3 className="font-['Cormorant_Garamond'] text-xl mb-2 text-white transition-transform duration-500 transform group-hover:translate-y-[-20%]">{service.title}</h3>
