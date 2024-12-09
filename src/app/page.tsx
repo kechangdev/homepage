@@ -2,7 +2,7 @@
 import { motion, useScroll, useSpring, useMotionValue } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 import Head from 'next/head';
-import './styles.css'; // 确保你有一个 CSS 文件来放置样式
+import './styles.css';
 
 export default function Home() {
     const { scrollYProgress } = useScroll();
@@ -78,7 +78,7 @@ export default function Home() {
     const calculateBlockSize = () => {
         const windowWidth = window.innerWidth;
         const numberOfServices = services.length;
-        const newSize = Math.min(windowWidth / (numberOfServices + 1), 300); // Max size of 300px
+        const newSize = Math.min(windowWidth / (numberOfServices + 1), 300);
         setBlockSize(newSize);
     };
 
@@ -100,7 +100,7 @@ export default function Home() {
             {
                 root: null,
                 rootMargin: "0px",
-                threshold: 0.5, // Trigger when section is 50% visible
+                threshold: 0.5,
             }
         );
 
@@ -141,7 +141,6 @@ export default function Home() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Disable text selection and context menu
     useEffect(() => {
         const preventDefault = (e: MouseEvent) => {
             e.preventDefault();
@@ -174,7 +173,7 @@ export default function Home() {
                     y: cursorY,
                     transition: 'transform 0.05s ease-in-out',
                     backgroundColor: 'transparent',
-                    boxShadow: '0 0 10px rgba(191, 27, 21, 0.5)', // Optional: red shadow for better visibility
+                    boxShadow: '0 0 10px rgba(191, 27, 21, 0.5)',
                 }}
             />
 
@@ -321,8 +320,9 @@ export default function Home() {
                                         alt={service.title}
                                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 z-0"
                                     />
-                                    <div
-                                        className="absolute inset-0 bg-black/40 z-10 transition-opacity duration-500 group-hover:bg-opacity-0"></div>
+
+                                     <div className="absolute inset-0 bg-black/10 z-10 transition-opacity duration-500 group-hover:bg-opacity-0"></div>
+
                                     <div className="relative z-20 p-6 transition-transform duration-500">
                                         <h3 className="font-['Cormorant_Garamond'] text-xl mb-2 text-white transition-transform duration-500 transform group-hover:translate-y-[-20%]">{service.title}</h3>
                                         <p className="text-sm tracking-[0.2em] opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 text-white">
