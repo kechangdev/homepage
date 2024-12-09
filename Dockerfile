@@ -1,18 +1,24 @@
-FROM node:latest
+FROM node:latest AS builder
 
 WORKDIR /app
 
-# Clone your repository
-RUN git clone https://github.com/kechangdev/homepage.git
+RUN git clone https://github.com/kechangdev/homepage.git .
 
-# Change the working directory to your repository name
-WORKDIR /app/homepage
-
-# Install dependencies
 RUN npm install
 
-# Expose the application port
+RUN npm run build
+
+FROM node:latest AS production
+
+WORKDIR /app
+
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/node_modules ./node_modules
+
+RUN npm install --only=production
+
 EXPOSE 3000
 
-# Use CMD to start the application. Modify this to align with your package.json scripts.
-CMD ["npm", "run", "dev"]
+CMD ["npm", "start"]
