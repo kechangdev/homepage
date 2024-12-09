@@ -2,6 +2,7 @@
 import { motion, useScroll, useSpring, useMotionValue } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 import Head from 'next/head';
+import './styles.css'; // 确保你有一个 CSS 文件来放置样式
 
 export default function Home() {
     const { scrollYProgress } = useScroll();

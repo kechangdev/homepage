@@ -1,0 +1,13 @@
+/* styles.css */
+html {
+    scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+}
+
+/* Prevent text selection */
+body {
+    user-select: none;
+}
