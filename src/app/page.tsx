@@ -342,7 +342,7 @@ export default function Home() {
                     <div className="text-center mb-12">
                         <div className="text-2xl tracking-[0.2em] font-light mb-4 text-black">GET IN TOUCH</div>
                         <div className="flex justify-center space-x-8 text-sm tracking-[0.2em] text-black">
-                            <a href="mailto:kechang.dev@gmail.com"
+                            <a href="mailto:kechang@duck.com"
                                className="hover:text-[#bf1b15] transition-colors duration-300">EMAIL</a>
                             <a href="https://github.com/kechangdev" target="_blank" rel="noopener noreferrer"
                                className="hover:text-[#bf1b15] transition-colors duration-300">GITHUB</a>
