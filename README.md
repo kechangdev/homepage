@@ -39,3 +39,56 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+## Deploy with Docker
+
+### **1. Build the Docker Image**
+Use the following command to build your Docker image:
+
+```shell
+docker build -t <image_name>:<tag> .
+```
+
+Replace `<image_name>` with your desired image name and `<tag>` with the version tag (e.g., `v1.0`).
+
+---
+
+### **2. Tag the Docker Image**
+Tag your image to use the `latest` tag for easy reference:
+
+```shell
+docker tag <image_name>:<tag> <image_name>:latest
+```
+
+---
+
+### **3. Push the Image to Docker Hub**
+Push your Docker image to Docker Hub (or any other container registry):
+
+```shell
+docker push <image_name>:latest
+```
+
+Ensure you are logged in to Docker Hub before pushing the image:
+```shell
+docker login
+```
+
+---
+
+### **4. Run the Container**
+Run your container using the following command:
+
+```shell
+docker run --rm \
+           --name home \
+           -d \
+           -p <port>:3000 \
+           <image_name>:latest
+```
+
+- Replace `<port>` with the port you want to expose on your host machine.
+- Replace `<image_name>` with the name of your Docker image.
+
+The `--rm` flag ensures that the container is automatically removed when it stops, and `-d` runs it in detached mode.
