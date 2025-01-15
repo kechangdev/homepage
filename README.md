@@ -145,7 +145,3 @@ The `--rm` flag ensures that the container is automatically removed when it stop
 ## Contributing
 
 Contributions are welcome! Please feel free to submit issues or pull requests to improve the project.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
