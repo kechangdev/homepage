@@ -47,32 +47,25 @@ export default function Home() {
         },
         {
             id: 5,
-            title: "kechang's Chat",
-            description: "Chat with AI for help and fun!",
-            image: "./b19f6b24-e2e2-4005-82ed-24dd87921c0a.jpg",
-            link: "https://chat.kechang.uk",
-        },
-        {
-            id: 6,
             title: "kechang's API",
             description: "AI-powered API for Kechang's Chat.",
             image: "./c8603ad0-cd88-4f5d-a8e5-c97a22553c6c.jpg",
             link: "https://api.kechang.uk",
         },
         {
-            id: 7,
+            id: 6,
             title: "kechang's Bark",
             description: "Notifications that bark.",
             image: "./b32658de-4268-4aab-9887-38995a14e6d0.jpg",
             link: "https://bark.kechang.uk",
         },
         {
-            id: 8,
+            id: 7,
             title: "kechang's YOURLS",
             description: "Shrink those URLs!",
             image: "./1efa959d-ca8b-4df7-9577-cfb306f4c572.jpg",
             link: "https://url.kechang.uk/admin",
-        },
+        }
     ];
 
     const calculateBlockSize = () => {
